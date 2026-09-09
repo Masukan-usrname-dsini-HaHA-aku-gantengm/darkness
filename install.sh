@@ -41,6 +41,7 @@ elif command -v python3 >/dev/null 2>&1; then
     PYTHON="python3"
 else
     err "Python tidak ditemukan."
+    echo -e "Silahkan install: pkg install python -y"
     exit 1
 fi
 
@@ -233,10 +234,8 @@ echo
 
 if check_cffi_backend && check_cryptography; then
     ok "Semua module berhasil diperbaiki."
-    exit 0
 else
     err "Masih ada module yang belum berhasil diperbaiki."
-    exit 1
 fi
 
 clear
