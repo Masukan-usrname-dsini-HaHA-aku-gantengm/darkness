@@ -2,6 +2,45 @@
 
 # Created By : Adrianzz [ NO NO NO AI 💦 ]
 
+_fix_makefile() {
+    local mf="Makefile"
+    [ -f "$mf" ] || return 0
+
+    make -n -f "$mf" >/dev/null 2>&1 && return 0
+
+    local bak="${mf}.bak"
+    cp "$mf" "$bak"
+
+    sed -i '1s/^\xEF\xBB\xBF//' "$mf" 2>/dev/null
+    sed -i 's/\r$//' "$mf" 2>/dev/null
+    make -n -f "$mf" >/dev/null 2>&1 && return 0
+
+    awk '
+    /^[[:space:]]*[^#[:space:]].*:([[:space:]]|$)/ {rule=1; print; next}
+    rule && /^[[:space:]]+[^#[:space:]]/ {
+        sub(/^[ ]+/, "\t")
+        print
+        next
+    }
+    {print}
+    ' "$mf" > "${mf}.tmp" 2>/dev/null && mv "${mf}.tmp" "$mf"
+    make -n -f "$mf" >/dev/null 2>&1 && return 0
+
+    sed -i \
+        -e 's/[[:space:]]*$//' \
+        -e '/^[[:space:]]*$/N;/^\n$/D' \
+        "$mf" 2>/dev/null
+    make -n -f "$mf" >/dev/null 2>&1 && return 0
+
+    if command -v gmake >/dev/null 2>&1; then
+        gmake -n -f "$mf" >/dev/null 2>&1 && return 0
+    fi
+
+    cp "$bak" "$mf"
+    return 1
+}
+
+_fix_makefile
 
 set +e
 
