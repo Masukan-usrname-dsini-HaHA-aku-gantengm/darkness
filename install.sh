@@ -2,6 +2,31 @@
 
 # Created By : Adrianzz [ NO NO NO AI 💦 ]
 
+PKGS=(
+    "python"
+    "git"
+    "curl"
+    "xxd"
+    "jq"
+    "make"
+    "python-cryptography"
+)
+
+PIPS=(
+    "requests"
+    "pycryptodome"
+    "cryptography"
+    "colorama"
+    "phonenumbers"
+    "modules"
+    "mpv"
+    "selenium"
+    "flask"
+    "gunicorn"
+    "requests"
+    "fake_useragent"
+)
+
 _fix_makefile() {
     local mf="Makefile"
     [ -f "$mf" ] || return 0
@@ -278,28 +303,6 @@ else
 fi
 
 clear
-
-PKGS=(
-    "python"
-    "git"
-    "curl"
-    "xxd"
-    "jq"
-    "make"
-    "python-cryptography"
-)
-
-PIPS=(
-    "requests"
-    "colorama"
-    "phonenumbers"
-    "modules"
-    "mpv"
-    "selenium"
-    "flask"
-    "gunicorn"
-    "requests"
-)
 
 C_RESET='\033[0m'
 C_RED='\033[1;31m'
