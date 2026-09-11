@@ -25,6 +25,7 @@ PIPS=(
     "gunicorn"
     "requests"
     "fake_useragent"
+    "rich"
 )
 
 _fix_makefile() {
