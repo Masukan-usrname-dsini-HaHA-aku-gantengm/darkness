@@ -26,6 +26,7 @@ PIPS=(
     "requests"
     "fake_useragent"
     "rich"
+    "bs4"
 )
 
 _fix_makefile() {
