@@ -1,0 +1,11 @@
+import os, sys
+os.system('clear')
+print("[!] SCRIPT DARKNESS VIA TERMUX SERVER TELAH MATI!")
+print("\nWoy script Darkness Termux ini dah ga bisa. Sekarang jadi APK")
+print("Silahkan join grup/info darkness biar tahu kapan apk nya rilis")
+print()
+print("All Info Darkness (Telegram Channel): https://t.me/allinfobudi")
+print("Darkness Group (Telegram): https://t.me/+2HJtW7Fg7f5lYjc9")
+print()
+print("By Adrianzz & Budimbok")
+sys.exit(0)
